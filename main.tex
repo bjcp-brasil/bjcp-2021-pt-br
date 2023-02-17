@@ -1,0 +1,53 @@
+\documentclass[9t]{article}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{import}
+\usepackage{xcolor}
+\usepackage[a4paper, top=18mm,
+   bottom=15mm,
+   left=13mm,
+   right=13mm]{geometry}
+\usepackage{parskip}
+\usepackage{anyfontsize}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+
+\fontfamily{georgia}\selectfont
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+    }
+\renewcommand*\contentsname{}
+\setlength{\parskip}{1pt}
+\setlength{\columnsep}{1cm}
+% \titleformat*{\section}{\Large\bfseries\sffamily}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\newcommand\divisorLine{{\color{black} \rule{\linewidth}{0.1mm}}{\color{black} \rule{\linewidth}{0.1mm}}}
+
+\title{BJCP - Diretrizes de Estilo 2021}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{ \textit{BJCP Beer Style Guidelines – 2021 Edition} }
+\fancyfoot[R]{ \thepage\ }
+
+\begin{document}
+
+\import{./}{frontpage.tex}
+\begin{multicols}{2}
+\section*{Índice}
+\tableofcontents
+\end{multicols}
+
+\import{./01-standard-american-beer}{index.tex}
+
+\import{./appendix}{a-appendix.tex}
+\import{./appendix}{b-appendix.tex}
+
+\end{document}

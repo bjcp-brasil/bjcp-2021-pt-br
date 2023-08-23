@@ -1,0 +1,18 @@
+name: Compile LaTeX
+on: [ push ]
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    container: kjarosh/latex:2023.1
+    steps:
+      - name: Install make
+        run: apk add make
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: make
+      - name: Upload document
+        uses: actions/upload-artifact@v2
+        with:
+          name: bjcp-2021-pt-br
+          path: out/index.pdf

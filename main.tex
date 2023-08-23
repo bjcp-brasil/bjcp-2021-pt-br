@@ -53,13 +53,15 @@
 \fancyfoot[R]{ \thepage\ }
 
 \begin{document}
+\raggedcolumns
+
 
 \import{./}{frontpage.tex}
-\begin{multicols}{2}
+\begin{multicols*}{2}
 \section*{Índice}
 \renewcommand\contentsname{}
 \tableofcontents
-\end{multicols}
+\end{multicols*}
 
 \import{./introducao-ao-guia-de-estilos-2021}{index.tex}
 \import{./introducao-aos-estilos-de-cerveja}{index.tex}

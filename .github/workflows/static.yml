@@ -38,179 +38,179 @@ jobs:
       - uses: docker://pandoc/core:2.9
         with:
           args: >-  # allows you to break string into multiple lines
-            --toc -s \
-            introducao-ao-guia-de-estilos-2021/header.tex \
-            introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex \
-            introducao-ao-guia-de-estilos-2021/formato-da-descricao-de-estilos.tex \
-            introducao-ao-guia-de-estilos-2021/linguagem-de-descricao-dos-estilos.tex \
-            introducao-ao-guia-de-estilos-2021/nomeclatura-dos-estilos-e-categorias.tex \
-            introducao-ao-guia-de-estilos-2021/utilizando-o-guia-de-estilos.tex \
-            introducao-aos-estilos-de-cerveja/header.tex \
-            introducao-aos-estilos-de-cerveja/atributos-comuns-a-todos-estilos-de-cerveja.tex \
-            introducao-aos-estilos-de-cerveja/categorizacao-basica.tex \
-            introducao-aos-estilos-de-cerveja/glossario.tex \
-            introducao-aos-estilos-de-cerveja/organizacao-dos-estilos.tex \
-            introducao-aos-estilos-de-cerveja/referencia-de-cor.tex \
-            introducao-aos-estilos-de-cerveja/referencias-de-tags-de-estilo.tex \
-            01-standard-american-beer/header.tex \
-            01-standard-american-beer/1a-american-light-lager.tex \
-            01-standard-american-beer/1b-american-lager.tex \
-            01-standard-american-beer/1c-cream-ale.tex \
-            01-standard-american-beer/1d-american-wheat-beer.tex \
-            02-international-lager/header.tex \
-            02-international-lager/2a-international-pale-lager.tex \
-            02-international-lager/2b-international-amber-lager.tex \
-            02-international-lager/2c-international-dark-lager.tex \
-            03-czech-lager/header.tex \
-            03-czech-lager/3a-czech-pale-lager.tex \
-            03-czech-lager/3b-czech-premium-pale-lager.tex \
-            03-czech-lager/3c-czech-amber-lager.tex \
-            03-czech-lager/3d-czech-dark-lager.tex \
-            04-pale-malty-european-lager/header.tex \
-            04-pale-malty-european-lager/4a-munich-helles.tex \
-            04-pale-malty-european-lager/4b-festbier.tex \
-            04-pale-malty-european-lager/4c-helles-bock.tex \
-            05-pale-bitter-european-beer/header.tex \
-            05-pale-bitter-european-beer/5a-german-leichtbier.tex \
-            05-pale-bitter-european-beer/5b-kolsch.tex \
-            05-pale-bitter-european-beer/5c-german-helles-exportbier.tex \
-            05-pale-bitter-european-beer/5d-german-pils.tex \
-            06-amber-malty-european-lager/header.tex \
-            06-amber-malty-european-lager/6a-marzen.tex \
-            06-amber-malty-european-lager/6b-rauchbier.tex \
-            06-amber-malty-european-lager/6c-dunkles-bock.tex \
-            07-amber-bitter-european-beer/header.tex \
-            07-amber-bitter-european-beer/7a-vienna-lager.tex \
-            07-amber-bitter-european-beer/7b-altbier.tex \
-            08-dark-european-lager/header.tex \
-            08-dark-european-lager/8a-munich-dunkel.tex \
-            08-dark-european-lager/8b-schwarzbier.tex \
-            09-strong-european-beer/header.tex \
-            09-strong-european-beer/9a-doppelbock.tex \
-            09-strong-european-beer/9b-eisbock.tex \
-            09-strong-european-beer/9c-baltic-porter.tex \
-            10-german-wheat-beer/header.tex \
-            10-german-wheat-beer/10a-weissbier.tex \
-            10-german-wheat-beer/10b-dunkles-weissbier.tex \
-            10-german-wheat-beer/10c-weizenbock.tex \
-            11-british-bitter/header.tex \
-            11-british-bitter/11a-ordinary-bitter.tex \
-            11-british-bitter/11b-best-bitter.tex \
-            11-british-bitter/11c-strong-bitter.tex \
-            12-pale-commonwealth-beer/header.tex \
-            12-pale-commonwealth-beer/12a-british-golden-ale.tex \
-            12-pale-commonwealth-beer/12b-australian-sparkling-ale.tex \
-            12-pale-commonwealth-beer/12c-english-ipa.tex \
-            13-brown-british-beer/header.tex \
-            13-brown-british-beer/13a-dark-mild.tex \
-            13-brown-british-beer/13b-british-brown-ale.tex \
-            13-brown-british-beer/13c-english-porter.tex \
-            14-scottish-ale/header.tex \
-            14-scottish-ale/14a-scottish-light.tex \
-            14-scottish-ale/14b-scottish-heavy.tex \
-            14-scottish-ale/14c-scottish-export.tex \
-            15-irish-beer/header.tex \
-            15-irish-beer/15a-irish-red-ale.tex \
-            15-irish-beer/15b-irish-stout.tex \
-            15-irish-beer/15c-irish-extra-stout.tex \
-            16-dark-british-beer/header.tex \
-            16-dark-british-beer/16a-sweet-stout.tex \
-            16-dark-british-beer/16b-oatmeal-stout.tex \
-            16-dark-british-beer/16c-tropical-stout.tex \
-            16-dark-british-beer/16d-foreign-extra-stout.tex \
-            17-strong-british-ale/header.tex \
-            17-strong-british-ale/17a-british-strong-ale.tex \
-            17-strong-british-ale/17b-old-ale.tex \
-            17-strong-british-ale/17c-wee-heavy.tex \
-            17-strong-british-ale/17d-english-barleywine.tex \
-            18-pale-american-ale/header.tex \
-            18-pale-american-ale/18a-blonde-ale.tex \
-            18-pale-american-ale/18b-american-pale-ale.tex \
-            19-amber-and-brown-american-beer/header.tex \
-            19-amber-and-brown-american-beer/19a-american-amber-ale.tex \
-            19-amber-and-brown-american-beer/19b-california-common.tex \
-            19-amber-and-brown-american-beer/19c-american-brown-ale.tex \
-            20-american-porter-and-stout/header.tex \
-            20-american-porter-and-stout/20a-american-porter.tex \
-            20-american-porter-and-stout/20b-american-stout.tex \
-            20-american-porter-and-stout/20c-imperial-stout.tex \
-            21-ipa/header.tex \
-            21-ipa/21a-american-ipa.tex \
-            21-ipa/21b-specialty-ipa-belgian-ipa.tex \
-            21-ipa/21b-specialty-ipa-black-ipa.tex \
-            21-ipa/21b-specialty-ipa-brown-ipa.tex \
-            21-ipa/21b-specialty-ipa-brut-ipa.tex \
-            21-ipa/21b-specialty-ipa-red-ipa.tex \
-            21-ipa/21b-specialty-ipa-rye-ipa.tex \
-            21-ipa/21b-specialty-ipa-white-ipa.tex \
-            21-ipa/21b-specialty-ipa.tex \
-            21-ipa/21c-hazy-ipa.tex \
-            22-strong-american-ale/header.tex \
-            22-strong-american-ale/22a-double-ipa.tex \
-            22-strong-american-ale/22b-american-strong-ale.tex \
-            22-strong-american-ale/22c-american-barleywine.tex \
-            22-strong-american-ale/22d-wheatwine.tex \
-            23-european-sour-ale/header.tex \
-            23-european-sour-ale/23a-berliner-weisse.tex \
-            23-european-sour-ale/23b-flanders-red-ale.tex \
-            23-european-sour-ale/23c-oud-bruin.tex \
-            23-european-sour-ale/23d-lambic.tex \
-            23-european-sour-ale/23e-gueuze.tex \
-            23-european-sour-ale/23f-fruit-lambic.tex \
-            23-european-sour-ale/23g-gose.tex \
-            24-belgian-ale/header.tex \
-            24-belgian-ale/24a-witbier.tex \
-            24-belgian-ale/24b-belgian-pale-ale.tex \
-            24-belgian-ale/24c-biere-de-garde.tex \
-            25-strong-belgian-ale/header.tex \
-            25-strong-belgian-ale/25a-belgian-blond-ale.tex \
-            25-strong-belgian-ale/25b-saison.tex \
-            25-strong-belgian-ale/25c-belgian-golden-strong-ale.tex \
-            26-monastic-ale/header.tex \
-            26-monastic-ale/26a-belgian-single.tex \
-            26-monastic-ale/26b-belgian-dubbel.tex \
-            26-monastic-ale/26c-belgian-tripel.tex \
-            26-monastic-ale/26d-belgian-dark-strong-ale.tex \
-            27-historical-beer/header.tex \
-            27-historical-beer/27a-historical-beer-kellerbier.tex \
-            27-historical-beer/27a-historical-beer-kentucky-common.tex \
-            27-historical-beer/27a-historical-beer-lichtenhainer.tex \
-            27-historical-beer/27a-historical-beer-london-brown-ale.tex \
-            27-historical-beer/27a-historical-beer-piwo-grodziskie.tex \
-            27-historical-beer/27a-historical-beer-pre-prohibition-lager.tex \
-            27-historical-beer/27a-historical-beer-pre-prohibition-porter.tex \
-            27-historical-beer/27a-historical-beer-roggenbier.tex \
-            27-historical-beer/27a-historical-beer-sahti.tex \
-            28-american-wild-ale/header.tex \
-            28-american-wild-ale/28a-brett-beer.tex \
-            28-american-wild-ale/28b-mixed-fermentation-sour-beer.tex \
-            28-american-wild-ale/28c-wild-specialty-beer.tex \
-            28-american-wild-ale/28d-straight-sour-beer.tex \
-            29-fruit-beer/header.tex \
-            29-fruit-beer/29a-fruit-beer.tex \
-            29-fruit-beer/29b-fruit-and-spice-beer.tex \
-            29-fruit-beer/29c-specialty-fruit-beer.tex \
-            29-fruit-beer/29d-grape-ale.tex \
-            30-spiced-beer/header.tex \
-            30-spiced-beer/30a-spice-herb-or-vegetable-beer.tex \
-            30-spiced-beer/30b-autumn-seasonal-beer.tex \
-            30-spiced-beer/30c-winter-seasonal-beer.tex \
-            30-spiced-beer/30d-specialty-spice-beer.tex \
-            31-alternative-fermentables-beer/header.tex \
-            31-alternative-fermentables-beer/31a-alternative-grain-beer.tex \
-            31-alternative-fermentables-beer/31b-alternative-sugar-beer.tex \
-            32-smoked-beer/header.tex \
-            32-smoked-beer/32a-classic-style-smoked-beer.tex \
-            32-smoked-beer/32b-specialty-smoked-beer.tex \
-            33-wood-beer/header.tex \
-            33-wood-beer/33a-wood-aged-beer.tex \
-            33-wood-beer/33b-specialty-wood-aged-beer.tex \
-            34-specialty-beer/header.tex \
-            34-specialty-beer/34a-commercial-specialty-beer.tex \
-            34-specialty-beer/34b-mixed-style-beer.tex \
-            34-specialty-beer/34c-experimental-beer.tex \
-            appendix/a-appendix.tex \
-            appendix/b-appendix.tex \
+            --toc -s
+            introducao-ao-guia-de-estilos-2021/header.tex
+            introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex
+            introducao-ao-guia-de-estilos-2021/formato-da-descricao-de-estilos.tex
+            introducao-ao-guia-de-estilos-2021/linguagem-de-descricao-dos-estilos.tex
+            introducao-ao-guia-de-estilos-2021/nomeclatura-dos-estilos-e-categorias.tex
+            introducao-ao-guia-de-estilos-2021/utilizando-o-guia-de-estilos.tex
+            introducao-aos-estilos-de-cerveja/header.tex
+            introducao-aos-estilos-de-cerveja/atributos-comuns-a-todos-estilos-de-cerveja.tex
+            introducao-aos-estilos-de-cerveja/categorizacao-basica.tex
+            introducao-aos-estilos-de-cerveja/glossario.tex
+            introducao-aos-estilos-de-cerveja/organizacao-dos-estilos.tex
+            introducao-aos-estilos-de-cerveja/referencia-de-cor.tex
+            introducao-aos-estilos-de-cerveja/referencias-de-tags-de-estilo.tex
+            01-standard-american-beer/header.tex
+            01-standard-american-beer/1a-american-light-lager.tex
+            01-standard-american-beer/1b-american-lager.tex
+            01-standard-american-beer/1c-cream-ale.tex
+            01-standard-american-beer/1d-american-wheat-beer.tex
+            02-international-lager/header.tex
+            02-international-lager/2a-international-pale-lager.tex
+            02-international-lager/2b-international-amber-lager.tex
+            02-international-lager/2c-international-dark-lager.tex
+            03-czech-lager/header.tex
+            03-czech-lager/3a-czech-pale-lager.tex
+            03-czech-lager/3b-czech-premium-pale-lager.tex
+            03-czech-lager/3c-czech-amber-lager.tex
+            03-czech-lager/3d-czech-dark-lager.tex
+            04-pale-malty-european-lager/header.tex
+            04-pale-malty-european-lager/4a-munich-helles.tex
+            04-pale-malty-european-lager/4b-festbier.tex
+            04-pale-malty-european-lager/4c-helles-bock.tex
+            05-pale-bitter-european-beer/header.tex
+            05-pale-bitter-european-beer/5a-german-leichtbier.tex
+            05-pale-bitter-european-beer/5b-kolsch.tex
+            05-pale-bitter-european-beer/5c-german-helles-exportbier.tex
+            05-pale-bitter-european-beer/5d-german-pils.tex
+            06-amber-malty-european-lager/header.tex
+            06-amber-malty-european-lager/6a-marzen.tex
+            06-amber-malty-european-lager/6b-rauchbier.tex
+            06-amber-malty-european-lager/6c-dunkles-bock.tex
+            07-amber-bitter-european-beer/header.tex
+            07-amber-bitter-european-beer/7a-vienna-lager.tex
+            07-amber-bitter-european-beer/7b-altbier.tex
+            08-dark-european-lager/header.tex
+            08-dark-european-lager/8a-munich-dunkel.tex
+            08-dark-european-lager/8b-schwarzbier.tex
+            09-strong-european-beer/header.tex
+            09-strong-european-beer/9a-doppelbock.tex
+            09-strong-european-beer/9b-eisbock.tex
+            09-strong-european-beer/9c-baltic-porter.tex
+            10-german-wheat-beer/header.tex
+            10-german-wheat-beer/10a-weissbier.tex
+            10-german-wheat-beer/10b-dunkles-weissbier.tex
+            10-german-wheat-beer/10c-weizenbock.tex
+            11-british-bitter/header.tex
+            11-british-bitter/11a-ordinary-bitter.tex
+            11-british-bitter/11b-best-bitter.tex
+            11-british-bitter/11c-strong-bitter.tex
+            12-pale-commonwealth-beer/header.tex
+            12-pale-commonwealth-beer/12a-british-golden-ale.tex
+            12-pale-commonwealth-beer/12b-australian-sparkling-ale.tex
+            12-pale-commonwealth-beer/12c-english-ipa.tex
+            13-brown-british-beer/header.tex
+            13-brown-british-beer/13a-dark-mild.tex
+            13-brown-british-beer/13b-british-brown-ale.tex
+            13-brown-british-beer/13c-english-porter.tex
+            14-scottish-ale/header.tex
+            14-scottish-ale/14a-scottish-light.tex
+            14-scottish-ale/14b-scottish-heavy.tex
+            14-scottish-ale/14c-scottish-export.tex
+            15-irish-beer/header.tex
+            15-irish-beer/15a-irish-red-ale.tex
+            15-irish-beer/15b-irish-stout.tex
+            15-irish-beer/15c-irish-extra-stout.tex
+            16-dark-british-beer/header.tex
+            16-dark-british-beer/16a-sweet-stout.tex
+            16-dark-british-beer/16b-oatmeal-stout.tex
+            16-dark-british-beer/16c-tropical-stout.tex
+            16-dark-british-beer/16d-foreign-extra-stout.tex
+            17-strong-british-ale/header.tex
+            17-strong-british-ale/17a-british-strong-ale.tex
+            17-strong-british-ale/17b-old-ale.tex
+            17-strong-british-ale/17c-wee-heavy.tex
+            17-strong-british-ale/17d-english-barleywine.tex
+            18-pale-american-ale/header.tex
+            18-pale-american-ale/18a-blonde-ale.tex
+            18-pale-american-ale/18b-american-pale-ale.tex
+            19-amber-and-brown-american-beer/header.tex
+            19-amber-and-brown-american-beer/19a-american-amber-ale.tex
+            19-amber-and-brown-american-beer/19b-california-common.tex
+            19-amber-and-brown-american-beer/19c-american-brown-ale.tex
+            20-american-porter-and-stout/header.tex
+            20-american-porter-and-stout/20a-american-porter.tex
+            20-american-porter-and-stout/20b-american-stout.tex
+            20-american-porter-and-stout/20c-imperial-stout.tex
+            21-ipa/header.tex
+            21-ipa/21a-american-ipa.tex
+            21-ipa/21b-specialty-ipa-belgian-ipa.tex
+            21-ipa/21b-specialty-ipa-black-ipa.tex
+            21-ipa/21b-specialty-ipa-brown-ipa.tex
+            21-ipa/21b-specialty-ipa-brut-ipa.tex
+            21-ipa/21b-specialty-ipa-red-ipa.tex
+            21-ipa/21b-specialty-ipa-rye-ipa.tex
+            21-ipa/21b-specialty-ipa-white-ipa.tex
+            21-ipa/21b-specialty-ipa.tex
+            21-ipa/21c-hazy-ipa.tex
+            22-strong-american-ale/header.tex
+            22-strong-american-ale/22a-double-ipa.tex
+            22-strong-american-ale/22b-american-strong-ale.tex
+            22-strong-american-ale/22c-american-barleywine.tex
+            22-strong-american-ale/22d-wheatwine.tex
+            23-european-sour-ale/header.tex
+            23-european-sour-ale/23a-berliner-weisse.tex
+            23-european-sour-ale/23b-flanders-red-ale.tex
+            23-european-sour-ale/23c-oud-bruin.tex
+            23-european-sour-ale/23d-lambic.tex
+            23-european-sour-ale/23e-gueuze.tex
+            23-european-sour-ale/23f-fruit-lambic.tex
+            23-european-sour-ale/23g-gose.tex
+            24-belgian-ale/header.tex
+            24-belgian-ale/24a-witbier.tex
+            24-belgian-ale/24b-belgian-pale-ale.tex
+            24-belgian-ale/24c-biere-de-garde.tex
+            25-strong-belgian-ale/header.tex
+            25-strong-belgian-ale/25a-belgian-blond-ale.tex
+            25-strong-belgian-ale/25b-saison.tex
+            25-strong-belgian-ale/25c-belgian-golden-strong-ale.tex
+            26-monastic-ale/header.tex
+            26-monastic-ale/26a-belgian-single.tex
+            26-monastic-ale/26b-belgian-dubbel.tex
+            26-monastic-ale/26c-belgian-tripel.tex
+            26-monastic-ale/26d-belgian-dark-strong-ale.tex
+            27-historical-beer/header.tex
+            27-historical-beer/27a-historical-beer-kellerbier.tex
+            27-historical-beer/27a-historical-beer-kentucky-common.tex
+            27-historical-beer/27a-historical-beer-lichtenhainer.tex
+            27-historical-beer/27a-historical-beer-london-brown-ale.tex
+            27-historical-beer/27a-historical-beer-piwo-grodziskie.tex
+            27-historical-beer/27a-historical-beer-pre-prohibition-lager.tex
+            27-historical-beer/27a-historical-beer-pre-prohibition-porter.tex
+            27-historical-beer/27a-historical-beer-roggenbier.tex
+            27-historical-beer/27a-historical-beer-sahti.tex
+            28-american-wild-ale/header.tex
+            28-american-wild-ale/28a-brett-beer.tex
+            28-american-wild-ale/28b-mixed-fermentation-sour-beer.tex
+            28-american-wild-ale/28c-wild-specialty-beer.tex
+            28-american-wild-ale/28d-straight-sour-beer.tex
+            29-fruit-beer/header.tex
+            29-fruit-beer/29a-fruit-beer.tex
+            29-fruit-beer/29b-fruit-and-spice-beer.tex
+            29-fruit-beer/29c-specialty-fruit-beer.tex
+            29-fruit-beer/29d-grape-ale.tex
+            30-spiced-beer/header.tex
+            30-spiced-beer/30a-spice-herb-or-vegetable-beer.tex
+            30-spiced-beer/30b-autumn-seasonal-beer.tex
+            30-spiced-beer/30c-winter-seasonal-beer.tex
+            30-spiced-beer/30d-specialty-spice-beer.tex
+            31-alternative-fermentables-beer/header.tex
+            31-alternative-fermentables-beer/31a-alternative-grain-beer.tex
+            31-alternative-fermentables-beer/31b-alternative-sugar-beer.tex
+            32-smoked-beer/header.tex
+            32-smoked-beer/32a-classic-style-smoked-beer.tex
+            32-smoked-beer/32b-specialty-smoked-beer.tex
+            33-wood-beer/header.tex
+            33-wood-beer/33a-wood-aged-beer.tex
+            33-wood-beer/33b-specialty-wood-aged-beer.tex
+            34-specialty-beer/header.tex
+            34-specialty-beer/34a-commercial-specialty-beer.tex
+            34-specialty-beer/34b-mixed-style-beer.tex
+            34-specialty-beer/34c-experimental-beer.tex
+            appendix/a-appendix.tex
+            appendix/b-appendix.tex
             index-f latex -t html5 >> html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

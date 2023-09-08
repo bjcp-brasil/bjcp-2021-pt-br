@@ -211,7 +211,7 @@ jobs:
             34-specialty-beer/34c-experimental-beer.tex \
             appendix/a-appendix.tex \
             appendix/b-appendix.tex \
-            index-f latex -t html5 -o html/index.html
+            index-f latex -t html5 >> html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

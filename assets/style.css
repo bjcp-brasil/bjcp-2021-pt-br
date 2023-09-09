@@ -264,13 +264,13 @@ table td {
   text-align: center;
 }
 
-.titlepage {
+header {
   text-align: center;
 }
 
-.titlepage h1,
-.titlepage h2,
-.titlepage h3 {
+header h1,
+header h2,
+header h3{
   margin-top: 1em;
 }
 

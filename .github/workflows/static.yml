@@ -222,10 +222,11 @@ jobs:
             -f latex -t html5 -o html/index.html
       - name: Fix HTML
         run: |
-          sed -i '' 's:<span><strong>BEER JUDGE CERTIFICATION PROGRAM</strong></span><br />:<h1>BEER JUDGE CERTIFICATION PROGRAM</h1>:g' html/index.html
-          sed -i '' 's:<span><strong>Guia de Estilos 2021</strong> </span><br />:<h2>Guia de Estilos 2021</h2>:g' html/index.html
-          sed -i '' 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
-          sed -i '' 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
+          sed -i 's:<p><span>2</span></p>::g' html/index.html
+          sed -i 's:<span><strong>BEER JUDGE CERTIFICATION PROGRAM</strong></span><br />:<h1>BEER JUDGE CERTIFICATION PROGRAM</h1>:g' html/index.html
+          sed -i 's:<span><strong>Guia de Estilos 2021</strong> </span><br />:<h2>Guia de Estilos 2021</h2>:g' html/index.html
+          sed -i 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
+          sed -i 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

@@ -42,12 +42,12 @@ jobs:
           args: >-
             frontpage.tex -o html/header.html
       - name: Fix header
-        run: echo "<header>$(cat html/header.html)</header>" > html/header.html
+        run: echo "<header>$(cat html/header.html)</header>" > html/updated-header.html
       - name: Generate full content
         uses: docker://pandoc/core:2.9
         with:
           args: >-
-            --toc -s -B html/header.html
+            --toc -s -B html/updated-header.html
             -c assets/style.css
             introducao-ao-guia-de-estilos-2021/header.tex
             introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex
@@ -229,6 +229,7 @@ jobs:
           sed -i 's:<span><strong>Guia de Estilos 2021</strong> </span><br />:<h2>Guia de Estilos 2021</h2>:g' html/index.html
           sed -i 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
           sed -i 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
+          sed -i 's:<span id="fig:bjcp-logo" label="fig:bjcp-logo">[fig:bjcp-logo]</span>:g' html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

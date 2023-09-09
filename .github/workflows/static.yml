@@ -22,8 +22,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  update-doc:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -34,11 +33,20 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Create Folder Structure
-        run: mkdir html
-      - uses: docker://pandoc/core:2.9
+        run: |
+          mkdir html
+          cp -r assets html
+      - name: Generate header
+        uses: docker://pandoc/core:2.9
         with:
-          args: >-  # allows you to break string into multiple lines
-            --toc -s
+          args: >-
+            frontpage.tex -o html/header.html
+      - name: Generate full content
+        uses: docker://pandoc/core:2.9
+        with:
+          args: >-
+            --toc -s -B html/header.html
+            -c assets/style.css
             introducao-ao-guia-de-estilos-2021/header.tex
             introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex
             introducao-ao-guia-de-estilos-2021/formato-da-descricao-de-estilos.tex
@@ -212,6 +220,12 @@ jobs:
             appendix/a-appendix.tex
             appendix/b-appendix.tex
             -f latex -t html5 -o html/index.html
+      - name: Fix HTML
+        run: |
+          sed -i '' 's:<span><strong>BEER JUDGE CERTIFICATION PROGRAM</strong></span><br />:<h1>BEER JUDGE CERTIFICATION PROGRAM</h1>:g' html/index.html
+          sed -i '' 's:<span><strong>Guia de Estilos 2021</strong> </span><br />:<h2>Guia de Estilos 2021</h2>:g' html/index.html
+          sed -i '' 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
+          sed -i '' 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

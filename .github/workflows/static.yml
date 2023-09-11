@@ -49,7 +49,7 @@ jobs:
           args: >-
             --toc -s
             -B html/updated-header.html
-            -A html/footer.html
+            -A assets/footer.html
             -c assets/style.css
             introducao-ao-guia-de-estilos-2021/header.tex
             introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex

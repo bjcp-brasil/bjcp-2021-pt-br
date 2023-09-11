@@ -47,7 +47,9 @@ jobs:
         uses: docker://pandoc/core:2.9
         with:
           args: >-
-            --toc -s -B html/updated-header.html
+            --toc -s
+            -B html/updated-header.html
+            -A html/footer.html
             -c assets/style.css
             introducao-ao-guia-de-estilos-2021/header.tex
             introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex

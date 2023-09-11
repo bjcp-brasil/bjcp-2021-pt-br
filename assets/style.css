@@ -274,6 +274,31 @@ header h3{
   margin-top: 1em;
 }
 
+#back-to-top {
+  background-color: #000;
+  display: inline-block;
+  position: fixed;
+  bottom: -2px;
+  color: #fff;
+  padding: 5px;
+  right: 10px;
+  opacity: 75%;
+  font-size: 0.8em;
+  border-radius: 5px 5px 0px 0px;
+}
+
+@media screen and (max-width: 480px) {
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  td,
+  th {
+    word-wrap: break-word;
+  }
+}
+
 @media only screen and (min-width: 480px) {
   body {
     font-size: 14px;

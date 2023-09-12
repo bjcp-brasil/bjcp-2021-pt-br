@@ -2,6 +2,8 @@
 
 > Arquivo fonte LaTEX com a tradução do Guia de Estilos 2021 do BJCP para Português Brasileiro.
 
+Temos também um espelho do Guia de Estilos no formato HTML para consulta rápida, você pode acessá-lo [aqui](https://bjcp-brasil.github.io/bjcp-2021-pt-br/).
+
 ### Ajustes e melhorias
 
 O projeto é um trabalho constante de melhoria. Apesar de o guia 2021 não ter atualizações frequentes, entendemos que a tradução sim. Temos as seguintes tarefas:
@@ -14,7 +16,7 @@ O projeto é um trabalho constante de melhoria. Apesar de o guia 2021 não ter a
 
 ## 😄 Quero contribuir
 
-Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contribuir.
+Quer fazer parte desse projeto? Clique [aqui](CONTRIBUTING.md) e leia como contribuir.
 
 ## 🚀 Compilando o projeto
 

@@ -32,6 +32,7 @@ jobs:
         with:
           args: >-
             frontpage.tex -o html/header.html
+      - name: Fix header
         run: echo "<header>$(cat html/header.html)</header>" > html/updated-header.html
       - name: Generate full content
         uses: docker://pandoc/core:2.9

@@ -2,6 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
+    branches: ["main"]
 
   workflow_dispatch:
 
@@ -218,7 +219,6 @@ jobs:
             appendix/b-appendix.tex
             -f latex -t html5 -o html/index.html
       - name: Fix HTML
-        if: ${{ github.ref == 'main' }}
         run: |
           sed -i 's:<p><span>2</span></p>::g' html/index.html
           sed -i 's:<span><strong>BEER JUDGE CERTIFICATION PROGRAM</strong></span><br />:<h1>BEER JUDGE CERTIFICATION PROGRAM</h1>:g' html/index.html
@@ -226,11 +226,9 @@ jobs:
           sed -i 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
           sed -i 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
           sed -i 's@<span id="fig:bjcp-logo" label="fig:bjcp-logo">\[fig:bjcp-logo\]</span>@@g' html/index.html
-      - name: Upload artifact 
-        if: ${{ github.ref == 'main' }}
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: 'html'
       - name: Deploy to GitHub Pages
-        if: ${{ github.ref == 'main' }}
         uses: actions/deploy-pages@v2

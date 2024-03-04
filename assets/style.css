@@ -12,7 +12,7 @@ html {
 body {
   color: #444;
   font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.7;
   padding: 1em;
   margin: auto;
@@ -283,15 +283,11 @@ header h3{
   padding: 2px 5px 0px 5px;
   right: 5px;
   opacity: 75%;
-  font-size: 1em;
+  font-size: 1.5em;
   border-radius: 5px 5px 0px 0px;
 }
 
 @media screen and (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
   table {
     table-layout: fixed;
     width: 100%;
@@ -300,22 +296,6 @@ header h3{
   td,
   th {
     word-wrap: break-word;
-  }
-
-  #back-to-top {
-    font-size: 1.5em;
-  }
-}
-
-@media only screen and (min-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  body {
-    font-size: 16px;
   }
 }
 

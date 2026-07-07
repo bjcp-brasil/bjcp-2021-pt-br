@@ -3,8 +3,16 @@ build-html:
 	mkdir html
 	cp -r assets html
 	pandoc frontpage.tex -o html/header.html
-	pandoc --toc -s -B html/header.html \
+	echo "<header>$$(cat html/header.html)</header>" > html/updated-header.html
+	pandoc --toc -s \
+		--metadata-file assets/pandoc-metadata.yaml \
+		-H assets/head-extra.html \
+		-B assets/layout-toggle.html \
+		-B html/updated-header.html \
+		-A assets/footer.html \
+		-A assets/layout-toggle-script.html \
 		-c assets/style.css \
+		-c assets/sidebar-toggle.css \
 		introducao-ao-guia-de-estilos-2021/header.tex \
 		introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex \
 		introducao-ao-guia-de-estilos-2021/formato-da-descricao-de-estilos.tex \
@@ -178,7 +186,9 @@ build-html:
 		appendix/a-appendix.tex \
 		appendix/b-appendix.tex \
 		-f latex -t html5 -o html/index.html
-		sed -i '' 's:<span><strong>BEER JUDGE CERTIFICATION PROGRAM</strong></span><br />:<h1>BEER JUDGE CERTIFICATION PROGRAM</h1>:g' html/index.html
-		sed -i '' 's:<span><strong>Guia de Estilos 2021</strong> </span><br />:<h2>Guia de Estilos 2021</h2>:g' html/index.html
-		sed -i '' 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
-		sed -i '' 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
+	sed -i '' 's:<p><span>2</span></p>::g' html/index.html
+	sed -i '' 's:<span><strong>BEER JUDGE CERTIFICATION PROGRAM</strong></span><br />:<h1>BEER JUDGE CERTIFICATION PROGRAM</h1>:g' html/index.html
+	sed -i '' 's:<span><strong>Guia de Estilos 2021</strong> </span><br />:<h2>Guia de Estilos 2021</h2>:g' html/index.html
+	sed -i '' 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
+	sed -i '' 's@<span id="fig:bjcp-logo" label="fig:bjcp-logo">\[fig:bjcp-logo\]</span>@@g' html/index.html
+	sed -i '' 's@<img src="assets/bjcp-logo.png" alt="image" />@<img src="assets/bjcp-logo.png" alt="Logo do BJCP - Beer Judge Certification Program" />@g' html/index.html

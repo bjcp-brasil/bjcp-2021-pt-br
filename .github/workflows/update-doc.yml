@@ -45,6 +45,7 @@ jobs:
             -B html/updated-header.html
             -A assets/footer.html
             -c assets/style.css
+            -c assets/sidebar-toggle.css
             introducao-ao-guia-de-estilos-2021/header.tex
             introducao-ao-guia-de-estilos-2021/estilos-e-categorias.tex
             introducao-ao-guia-de-estilos-2021/formato-da-descricao-de-estilos.tex
@@ -242,6 +243,10 @@ jobs:
           sed -i 's@</head>@  <link rel="icon" type="image/png" href="assets/bjcp-logo.png" />\n</head>@' html/index.html
           # --- SEO: item 8, JSON-LD ---
           sed -i 's#</head>#  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "CreativeWork",\n    "name": "Guia de Estilos BJCP 2021",\n    "inLanguage": "pt-BR",\n    "author": { "@type": "Organization", "name": "BJCP Brasil" },\n    "version": "1.7",\n    "url": "https://bjcp-brasil.github.io/bjcp-2021-pt-br/"\n  }\n  </script>\n</head>#' html/index.html
+          # --- Seletor de formato (clássico / menu lateral), CSS via checkbox hack ---
+          sed -i 's@<body>@<body>\n<input type="checkbox" id="layout-toggle" />\n<label id="layout-toggle-label" for="layout-toggle"><span class="off-text">📖 Formato clássico</span><span class="on-text">📑 Menu lateral</span></label>@' html/index.html
+          # --- Reflete o modo escolhido em ?view=sidebar na URL (não mexe no #hash das âncoras de estilo) ---
+          sed -i 's@</body>@<script>\n(function() {\n  var params = new URLSearchParams(location.search);\n  var toggle = document.getElementById("layout-toggle");\n  if (params.get("view") === "sidebar") {\n    toggle.checked = true;\n  }\n  toggle.addEventListener("change", function() {\n    var p = new URLSearchParams(location.search);\n    if (toggle.checked) {\n      p.set("view", "sidebar");\n    } else {\n      p.delete("view");\n    }\n    var newSearch = p.toString();\n    var newUrl = location.pathname + (newSearch ? "?" + newSearch : "") + location.hash;\n    history.replaceState(null, "", newUrl);\n  });\n})();\n</script>\n</body>@' html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

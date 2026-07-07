@@ -42,8 +42,12 @@ jobs:
         with:
           args: >-
             --toc -s
+            --metadata-file assets/pandoc-metadata.yaml
+            -H assets/head-extra.html
+            -B assets/layout-toggle.html
             -B html/updated-header.html
             -A assets/footer.html
+            -A assets/layout-toggle-script.html
             -c assets/style.css
             -c assets/sidebar-toggle.css
             introducao-ao-guia-de-estilos-2021/header.tex
@@ -225,28 +229,12 @@ jobs:
           sed -i 's:<span><strong>BEER JUDGE CERTIFICATION PROGRAM</strong></span><br />:<h1>BEER JUDGE CERTIFICATION PROGRAM</h1>:g' html/index.html
           sed -i 's:<span><strong>Guia de Estilos 2021</strong> </span><br />:<h2>Guia de Estilos 2021</h2>:g' html/index.html
           sed -i 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
-          sed -i 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
           sed -i 's@<span id="fig:bjcp-logo" label="fig:bjcp-logo">\[fig:bjcp-logo\]</span>@@g' html/index.html
-          # --- SEO: item 1, lang vazio ---
-          sed -i 's@<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">@<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">@g' html/index.html
-          # --- SEO: item 2, meta description ---
-          sed -i 's@<meta name="generator" content="pandoc" />@<meta name="generator" content="pandoc" />\n  <meta name="description" content="Guia de Estilos de Cerveja BJCP 2021 traduzido para Português do Brasil — descrições completas de todos os estilos reconhecidos pelo Beer Judge Certification Program." />@' html/index.html
-          # --- SEO: item 3, canonical ---
-          sed -i 's@</head>@  <link rel="canonical" href="https://bjcp-brasil.github.io/bjcp-2021-pt-br/" />\n</head>@' html/index.html
-          # --- SEO: item 4, Open Graph ---
-          sed -i 's@</head>@  <meta property="og:type" content="website" />\n  <meta property="og:locale" content="pt_BR" />\n  <meta property="og:title" content="Guia de Estilos BJCP 2021" />\n  <meta property="og:description" content="Guia de Estilos de Cerveja BJCP 2021 traduzido para Português do Brasil." />\n  <meta property="og:url" content="https://bjcp-brasil.github.io/bjcp-2021-pt-br/" />\n  <meta property="og:image" content="https://bjcp-brasil.github.io/bjcp-2021-pt-br/assets/bjcp-logo.png" />\n</head>@' html/index.html
-          # --- SEO: item 5, Twitter Card ---
-          sed -i 's@</head>@  <meta name="twitter:card" content="summary" />\n  <meta name="twitter:title" content="Guia de Estilos BJCP 2021" />\n  <meta name="twitter:description" content="Guia de Estilos de Cerveja BJCP 2021 traduzido para Português do Brasil." />\n  <meta name="twitter:image" content="https://bjcp-brasil.github.io/bjcp-2021-pt-br/assets/bjcp-logo.png" />\n</head>@' html/index.html
-          # --- SEO: item 6, alt text da logo ---
+          # --- SEO: alt text da logo (lang, description, canonical, OG, Twitter, favicon,
+          # JSON-LD e o toggle de layout agora vêm nativamente do pandoc via
+          # --metadata-file, -H, -B e -A — ver assets/pandoc-metadata.yaml,
+          # assets/head-extra.html, assets/layout-toggle.html e assets/layout-toggle-script.html) ---
           sed -i 's@<img src="assets/bjcp-logo.png" alt="image" />@<img src="assets/bjcp-logo.png" alt="Logo do BJCP - Beer Judge Certification Program" />@g' html/index.html
-          # --- SEO: item 7, favicon ---
-          sed -i 's@</head>@  <link rel="icon" type="image/png" href="assets/bjcp-logo.png" />\n</head>@' html/index.html
-          # --- SEO: item 8, JSON-LD ---
-          sed -i 's#</head>#  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "CreativeWork",\n    "name": "Guia de Estilos BJCP 2021",\n    "inLanguage": "pt-BR",\n    "author": { "@type": "Organization", "name": "BJCP Brasil" },\n    "version": "1.7",\n    "url": "https://bjcp-brasil.github.io/bjcp-2021-pt-br/"\n  }\n  </script>\n</head>#' html/index.html
-          # --- Seletor de formato (clássico / menu lateral), CSS via checkbox hack ---
-          sed -i 's@<body>@<body>\n<input type="checkbox" id="layout-toggle" />\n<label id="layout-toggle-label" for="layout-toggle"><span class="off-text">📖 Formato clássico</span><span class="on-text">📑 Menu lateral</span></label>@' html/index.html
-          # --- Reflete o modo escolhido em ?view=sidebar na URL (não mexe no #hash das âncoras de estilo) ---
-          sed -i 's@</body>@<script>\n(function() {\n  var params = new URLSearchParams(location.search);\n  var toggle = document.getElementById("layout-toggle");\n  if (params.get("view") === "sidebar") {\n    toggle.checked = true;\n  }\n  toggle.addEventListener("change", function() {\n    var p = new URLSearchParams(location.search);\n    if (toggle.checked) {\n      p.set("view", "sidebar");\n    } else {\n      p.delete("view");\n    }\n    var newSearch = p.toString();\n    var newUrl = location.pathname + (newSearch ? "?" + newSearch : "") + location.hash;\n    history.replaceState(null, "", newUrl);\n  });\n})();\n</script>\n</body>@' html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

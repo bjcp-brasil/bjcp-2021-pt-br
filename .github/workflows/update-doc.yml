@@ -226,6 +226,22 @@ jobs:
           sed -i 's:<span><strong>Guia de Estilos de Cerveja</strong></span><br />:<h3>Guia de Estilos de Cerveja</h3>:g' html/index.html
           sed -i 's:<title>header</title>:<title>Guia de Estilos BJCP 2021</title>:g' html/index.html
           sed -i 's@<span id="fig:bjcp-logo" label="fig:bjcp-logo">\[fig:bjcp-logo\]</span>@@g' html/index.html
+          # --- SEO: item 1, lang vazio ---
+          sed -i 's@<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">@<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">@g' html/index.html
+          # --- SEO: item 2, meta description ---
+          sed -i 's@<meta name="generator" content="pandoc" />@<meta name="generator" content="pandoc" />\n  <meta name="description" content="Guia de Estilos de Cerveja BJCP 2021 traduzido para Português do Brasil — descrições completas de todos os estilos reconhecidos pelo Beer Judge Certification Program." />@' html/index.html
+          # --- SEO: item 3, canonical ---
+          sed -i 's@</head>@  <link rel="canonical" href="https://bjcp-brasil.github.io/bjcp-2021-pt-br/" />\n</head>@' html/index.html
+          # --- SEO: item 4, Open Graph ---
+          sed -i 's@</head>@  <meta property="og:type" content="website" />\n  <meta property="og:locale" content="pt_BR" />\n  <meta property="og:title" content="Guia de Estilos BJCP 2021" />\n  <meta property="og:description" content="Guia de Estilos de Cerveja BJCP 2021 traduzido para Português do Brasil." />\n  <meta property="og:url" content="https://bjcp-brasil.github.io/bjcp-2021-pt-br/" />\n  <meta property="og:image" content="https://bjcp-brasil.github.io/bjcp-2021-pt-br/assets/bjcp-logo.png" />\n</head>@' html/index.html
+          # --- SEO: item 5, Twitter Card ---
+          sed -i 's@</head>@  <meta name="twitter:card" content="summary" />\n  <meta name="twitter:title" content="Guia de Estilos BJCP 2021" />\n  <meta name="twitter:description" content="Guia de Estilos de Cerveja BJCP 2021 traduzido para Português do Brasil." />\n  <meta name="twitter:image" content="https://bjcp-brasil.github.io/bjcp-2021-pt-br/assets/bjcp-logo.png" />\n</head>@' html/index.html
+          # --- SEO: item 6, alt text da logo ---
+          sed -i 's@<img src="assets/bjcp-logo.png" alt="image" />@<img src="assets/bjcp-logo.png" alt="Logo do BJCP - Beer Judge Certification Program" />@g' html/index.html
+          # --- SEO: item 7, favicon ---
+          sed -i 's@</head>@  <link rel="icon" type="image/png" href="assets/bjcp-logo.png" />\n</head>@' html/index.html
+          # --- SEO: item 8, JSON-LD ---
+          sed -i 's#</head>#  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "CreativeWork",\n    "name": "Guia de Estilos BJCP 2021",\n    "inLanguage": "pt-BR",\n    "author": { "@type": "Organization", "name": "BJCP Brasil" },\n    "version": "1.7",\n    "url": "https://bjcp-brasil.github.io/bjcp-2021-pt-br/"\n  }\n  </script>\n</head>#' html/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

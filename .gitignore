@@ -25,3 +25,7 @@
 
 .DS_Store
 .vscode
+
+# Arquivo temporário do website/scripts/generate-docs.mjs (deve ser
+# apagado sozinho ao final da execução; aqui só por segurança)
+/.generate-docs-tmp.tex

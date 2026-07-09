@@ -20,8 +20,21 @@ Quer fazer parte desse projeto? Clique [aqui](CONTRIBUTING.md) e leia como contr
 
 ## 🚀 Compilando o projeto
 
-O projeto é feito usando [LaTEX]().
-Caso você queira executar localmente esse projeto, recomendamos instalar a extensão do [VSCode](https://github.com/James-Yu/LaTeX-Workshop/wiki/Install#requirements).
+O PDF é feito usando [LaTeX](https://www.latex-project.org/). Caso você
+queira executar localmente esse projeto, recomendamos instalar a extensão
+do [VSCode](https://github.com/James-Yu/LaTeX-Workshop/wiki/Install#requirements).
+
+A versão web publicada no GitHub Pages é gerada a partir dos mesmos `.tex`
+via [Docusaurus](https://docusaurus.io/) — o `.tex` continua sendo a única
+fonte da verdade, a conversão pra Markdown acontece no CI. Pra rodar
+localmente, veja [`website/README.md`](website/README.md).
+
+## 📚 Documentação para tradutores
+
+- [Glossário EN → PT-BR](docs/translation/glossario-en-pt.md) — termos técnicos e tags de estilo já traduzidos, consulte antes de traduzir algo novo.
+- [Guia de estilo de tradução](docs/translation/guia-de-estilo.md) — convenções de tom e formatação.
+- [Rubrica de qualidade de tradução](docs/translation/rubrica-qualidade.md) — critério 0–10 usado em auditorias de qualidade.
+- [Decisões editoriais](docs/translation/decisoes-editoriais.md) — casos já investigados, não reabra sem motivo novo.
 
 ## 📝 Licença
 

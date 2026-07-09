@@ -1,0 +1,38 @@
+name: Validate Docusaurus build
+
+# Roda o mesmo pipeline de deploy-pages.yml (gerar markdown + build), mas
+# sem publicar — só pra pegar erro de build/link quebrado antes do merge
+# pra main. Substitui o antigo validate-syntax.yml (que validava o
+# pipeline pandoc+sed, aposentado).
+on:
+  push:
+    branches-ignore: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: website/package-lock.json
+
+      - name: Gerar Markdown a partir dos .tex (fonte original)
+        run: node website/scripts/generate-docs.mjs
+
+      - name: Instalar dependências
+        working-directory: website
+        run: npm ci
+
+      - name: Build do site
+        working-directory: website
+        run: npm run build

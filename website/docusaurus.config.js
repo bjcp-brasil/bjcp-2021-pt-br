@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Guia de Estilos de Cerveja BJCP - 2021',
   tagline: 'Diretrizes de Estilo de Cerveja do BJCP - Tradução PT-BR',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/bjcp-logo.png',
 
   future: {
     v4: true,

@@ -29,3 +29,9 @@
 # Arquivo temporário do website/scripts/generate-docs.mjs (deve ser
 # apagado sozinho ao final da execução; aqui só por segurança)
 /.generate-docs-tmp.tex
+
+# Saída do tools/styleguide-dataset/ -- vai pro repo bjcp-brasil/styleguide-2021,
+# não fica versionado aqui.
+/tools/styleguide-dataset/bjcp-2021-pt-br.json
+/tools/styleguide-dataset/bjcp-2021-pt-br.xml
+/tools/styleguide-dataset/bjcp-2021-pt-br.yaml

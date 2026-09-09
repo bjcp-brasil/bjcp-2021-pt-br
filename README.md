@@ -36,6 +36,10 @@ localmente, veja [`website/README.md`](website/README.md).
 - [Rubrica de qualidade de tradução](docs/translation/rubrica-qualidade.md) — critério 0–10 usado em auditorias de qualidade.
 - [Decisões editoriais](docs/translation/decisoes-editoriais.md) — casos já investigados, não reabra sem motivo novo.
 
+## 📚 Consistência de tradução
+
+[`PHRASE_BANK.md`](PHRASE_BANK.md) lista as frases padronizadas que o guia original em inglês repete entre estilos, com a tradução canônica em PT-BR já usada (quando existe) — pra manter a mesma redação entre páginas traduzidas por pessoas diferentes. Gerado por `scripts/generate-phrase-bank.py`; nunca editar o `.md` na mão (ver instruções no topo do script).
+
 ## 📝 Licença
 
 A tradução do Guia de Estilos do BJCP é open source e pode ser copiada e modificada. Para mais detalhes veja o arquivo [LICENÇA](LICENSE.md).
